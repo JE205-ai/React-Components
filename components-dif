@@ -1,1 +1,68 @@
 
+// This one is App.js
+import logo from "./logo.svg";
+import "./App.css";
+import Article from "./Article";
+function App() {
+  return (
+    <div className="App">
+      <Article
+        name="Ronia"
+        email="Ronia@outlook.com"
+        year="1995"
+        paragraph="W małym miasteczku mieszkały dwie dziewczynki, które były najlepszymi przyjaciółkami. Ania była zawsze uśmiechnięta i pełna energii. Jej długie, ciemne włosy falowały na wietrze, gdy biegała po parku ze swoimi przyjaciółmi."
+      />
+      <Article
+        name="Joya"
+        email="Joya@outlook.com"
+        year="1996"
+        paragraph="Z kolei Kasia była nieco bardziej stonowana, ale równie utalentowana. Jej jasne włosy i zielone oczy sprawiały, że wyglądała jak mała wróżka."
+      />
+      <Article
+        name="Georges"
+        email="Georges@outlook.com"
+        year="2003"
+        paragraph="W miasteczku mieszkał również chłopiec o imieniu Michał."
+      />
+    </div>
+  );
+}
+
+export default App;
+
+// This one is Article.js
+
+export default function ({ name, email, year, paragraph }) {
+    return (
+        <>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "50vh", 
+              background: "lightgray", 
+            }}
+          >
+            <div
+              style={{
+                background: "white", 
+                boxShadow: "0px 10px 10px gray",
+                color: "black",
+                padding: "10px",
+                borderRadius: "8px", 
+                textAlign: "center", 
+                width: "600px",
+              }}
+            >
+              <h1>{name}</h1>
+              <h3>{email}</h3>
+              <h3>{year}</h3>
+    
+              <hr />
+              <p>{paragraph}</p>
+            </div>
+          </div>
+        </>
+      );
+    }
