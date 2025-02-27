@@ -1,0 +1,103 @@
+
+//file for App.js
+import logo from "./logo.svg";
+import "./App.css";
+import Article from "./Article";
+import image1 from "./image1.jpeg";
+import image2 from "./image2.jpeg";
+import image3 from "./image3.jpeg";
+
+
+function App() {
+
+  const firstArticle = `W małym miasteczku mieszkały dwie dziewczynki, które były najlepszymi przyjaciółkami.`
+  const secondArticle = `Z kolei Kasia była nieco bardziej stonowana, ale równie utalentowana. `
+  return (
+    <div className="App">
+
+      <Article
+        name="Ronia"
+        email="Ronia@outlook.com"
+        year="1995"
+        content={firstArticle}
+         image={image1}
+      >   
+      <h1 style={{color: "grey"}}>The end</h1>
+       </Article>
+      <Article
+        name="Joya"
+        email="Joya@outlook.com"
+        year="1996"
+        content={secondArticle}
+        image={image2}
+           >
+      
+            </Article>
+      <Article
+        name="Georges"
+        email="Georges@outlook.com"
+        year="2003"
+        image={image3}
+      />
+    </div>
+  );
+}
+
+export default App;
+
+
+// file for Article.js
+
+export default function Article({ name, email, year, content = "no content", children, image }) {
+  return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50vh", 
+            background: "lightgray", 
+          }}
+        >
+          <div
+            style={{
+              background: "white", 
+              boxShadow: "0px 10px 10px gray",
+              color: "black",
+              padding: "10px",
+              borderRadius: "8px", 
+              textAlign: "center", 
+              width: "600px",
+            }}
+          >
+          <div style={{ display: 'flex', alignItems: 'center', margin: '30px' }}>
+  {image && (
+    <img
+      src={image}
+      alt={name}
+      style={{
+        width: '130px',
+        height: '130px',
+        objectFit: 'cover',
+        marginRight: '30px',
+        borderRadius: '10px',
+        overflow: 'hidden',
+      }}
+    />
+  )}
+  <div style={{ textAlign: 'left' }}>
+    <h1>{name}</h1>
+    <h3>{email}</h3>
+    <h3>{year}</h3>
+  </div>
+</div>
+            <hr />
+
+            <p>{content}</p>
+            {children}
+          </div>
+        </div>
+      </>
+  );
+}
